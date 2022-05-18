@@ -28,14 +28,17 @@ const deleteJob = (job) => {
   <div>ToDoList</div>
   <div v-for="job in Jobs" :key="job.name">
     <div v-if="job.state != -1" class="job">
-      <div class="name">名前:{{ job.name }}</div>
-      <div class="state">
-        <!-- 状態：{{ job.state }} -->
-      </div>
       <div v-if="job.state == 0">
+        <div class="name">名前:{{ job.name }}</div>
         頑張ろう！<button @click="finishJob(job)">finish!</button>
       </div>
+    </div>
+  </div>
+  <div>------終わった------</div>
+  <div v-for="job in Jobs" :key="job.name">
+    <div v-if="job.state != -1" class="job">
       <div v-if="job.state == 1">
+        <div class="name">名前:{{ job.name }}</div>
         お疲れ様！<button @click="deleteJob(job)">Delete!</button>
       </div>
     </div>
